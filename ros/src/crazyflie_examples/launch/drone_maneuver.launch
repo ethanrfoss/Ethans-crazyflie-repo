@@ -1,0 +1,13 @@
+<launch>
+  <arg name="reference_topic" default="/ref" />
+
+  <include file ="$(find crazyflie_examples)/launch/sw_hover.launch">
+  </include>
+
+  <node name="drone_maneuver"
+        pkg="crazyflie_takeoff"
+        type="drone_maneuver_node.py"
+        output="screen">
+    <param name="topics/ref" value="$(arg reference_topic)" />
+  </node>
+</launch>
